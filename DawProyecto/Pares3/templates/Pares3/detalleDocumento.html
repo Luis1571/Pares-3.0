@@ -1,0 +1,79 @@
+
+{% extends 'Pares3/base.html' %} {% load static%} {% block content %}
+{% for  dd in detalleDocumento%}
+{%if dd.imagen%}
+<center>
+<h3 >Detalle del documento:  <strong>{{dd.signatura}}</strong></h3>
+</center>
+ <hr id="lineasmall" />
+{% if mensaje %}
+<div class="alert alert-success mx-auto" role="alert">
+  Documento guardado correctamente en su perfil 
+</div>
+{% endif %} 
+<div class="row" >
+
+<div class="col-6 ml-5" >
+
+<p class="mb-1">Signatura: </p>
+  <h6 class="ml-5"><strong>{{dd.signatura}}  </strong></h6>
+
+<p class="mb-1">Titulo: </p>
+  <h6 class="ml-5" style="text-align: justify"><strong>{{dd.titulo}}  </strong></h6>
+<p class="mb-1">Archivo: </p>
+  <h6 class="ml-5"><strong>{{dd.idarchivo.nombre}}  </strong></h6>
+<p class="mb-1">Contenido: </p>
+  <h6 class="ml-5" style="text-align: justify"><strong>{{dd.contenido}}  </strong></h6>
+<p class="mb-1">Siglo: </p>
+  <h6 class="ml-5"><strong>{{dd.siglo}}  </strong></h6>
+<p class="mb-1">Estado de conservación: </p>
+  <h6 class="ml-5"><strong>{{dd.conservacion}}  </strong></h6>
+
+</div>
+
+
+
+<div class="col-4" >
+<center><a href="../media/{{dd.imagen}}" target="_blank" ><img  class="doc mt-3 " src="{{dd.imagen.url}}"></a>
+
+<div >
+        
+        <a href="../guardarDoc/{{dd.signatura}}" ><button type="submit" class=" badge badge-pill mt-4  "id ="Aboton">Guardar </button> </a>
+         <a href="../busqueda/" ><button type="submit" class=" badge badge-pill mt-4" id ="GBoton">Volver </button> </a>
+        </center>
+        </div>
+</div>
+{%else%}
+<div class="col-6" >
+
+<p class="mb-1">Signatura: </p>
+  <h6 class="ml-5"><strong>{{dd.signatura}}  </strong></h6>
+
+<p class="mb-1">Titulo: </p>
+  <h6 class="ml-5" style="text-align: justify"><strong>{{dd.titulo}}  </strong></h6>
+<p class="mb-1">Archivo: </p>
+  <h6 class="ml-5"><strong>{{dd.idarchivo.nombre}}  </strong></h6>
+
+</div>
+<div class="col-6" >
+
+
+<p class="mb-1">Contenido: </p>
+  <h6 class="ml-5" style="text-align: justify"><strong>{{dd.contenido}}  </strong></h6>
+<p class="mb-1">Siglo: </p>
+  <h6 class="ml-5"><strong>{{dd.siglo}}  </strong></h6>
+<p class="mb-1">Estado de conservación: </p>
+  <h6 class="ml-5"><strong>{{dd.conservacion}}  </strong></h6>
+
+</div>
+
+
+</div>
+<div>
+        <a href="../guardarDoc/{{dd.signatura}}" ><button type="submit" class=" badge badge-pill mt-4  "id ="Aboton">Guardar </button> </a>
+        <a href="../busqueda/" ><button type="submit" class=" badge badge-pill mt-4" id ="GBoton">Volver </button> </a>
+        </div>
+</div>
+{% endif %} {% endfor %}
+
+     {% endblock %}

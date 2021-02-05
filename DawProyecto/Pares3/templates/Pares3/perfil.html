@@ -1,0 +1,84 @@
+{% extends 'Pares3/base.html' %} {% load static%} {% block content %}
+<div class="row">
+<div class="col-5"></div><h3>Perfil de {{nombre}}</h3>
+</div>
+<hr id="linea1" />
+<div class="row container mt-5">
+    <div class="col-4"></div>
+  <div class=" row " id="card"> 
+    <div class="col-6  ">
+       <p>Nombre:</p>
+    <h6 class="ml-5"><strong>{{nombre}}</strong></h6>
+    <p>Apellidos:</p>
+    <h6 class="ml-5"><strong>{{a1}}&nbsp{{a2}} </strong></h6>
+    <p>Correo electrónico:</p>
+    <h6 class="ml-5"><strong>{{email}}</strong></h6>
+   </div>
+
+
+ <div class="col-6  ">
+    <p class="mt-3">Teléfono:</p>
+    <h6 class="ml-5"><strong>{{tel}}</strong></h6>
+    <p>País:</p>
+    <h6 class="ml-5"><strong>{{pais}}</strong></h6>
+  </div>
+<div class="col-12">
+    <center>
+      <button type="button"  class="badge badge-pill w-50 mt-3 mb-3"
+                id="Aboton" >
+        <a href="../verMisDocumentos/{{nombre}}">Ver mis documentos </a>
+      </button>
+    </center>
+  </div>
+
+ <div class="col-4"></div>
+   </div>
+
+  
+</div>
+  
+
+  {% if lista %}
+  <div class="col-12 mx-auto mt-5">
+    <table class="table table-striped" id="card">
+      <thead id="GBoton">
+        <tr>
+          <th scope="col">Signatura</th>
+          <th scope="col">Titulo</th>
+          <th scope="col">Guardado</th>
+          <th scope="col">Detalle del Documento</th>
+          <th scope="col">Eliminar</th>
+        </tr>
+      </thead>
+      <tbody class="">
+        {% for d in lista %}
+        <tr>
+          <td>{{d.signatura.signatura}}</td>
+          <td>{{d.signatura.titulo}}</td>
+          <td>{{d.fecha}}</td>
+          <td>
+            <center>
+              <a
+                class="badge badge-pill w-50"
+                id="Aboton"
+                href="../detalleDocumento/{{d.signatura.signatura}}"
+                >Ver</a
+              >
+            </center>
+          </td>
+          <td>
+            <center>
+              <a
+                class="badge badge-pill"
+                id="GBoton"
+                href="../Eliminar_historial_Doc/{{d.signatura.signatura}}"
+                >Eliminar</a
+              >
+            </center>
+          </td>
+        </tr>
+        {% endfor %} {% endif %} {% endblock %}
+      </tbody>
+    </table>
+  </div>
+</div>

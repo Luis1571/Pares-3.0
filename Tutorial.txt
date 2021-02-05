@@ -1,0 +1,8 @@
+																	Proyecto PARES 3.0 
+
+PARES 3.0 es un proyecto web diselñado para que los archivos puedan difundir sus documentos, sus fondos. Ademas permite crear usuarios que accedean  a la platafroma y puedan tenr una perfil donde guardar documentos que son relevantes
+
+PARES 3.0 esta realizado en Django, para su puesta en marcha tan solo es preciso  tener instalado python y e instalar con la terminal o cmd las librerias necesarias
+
+				pip3 install -r requirements.txt (en linux)
+				pip install -r requirements.txt (en windows)

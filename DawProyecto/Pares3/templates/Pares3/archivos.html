@@ -1,0 +1,26 @@
+{% extends 'Pares3/base.html' %} {% load static%} {% block content %}
+<center>
+    <h1>ARCHIVOS</h1>
+</center>
+<hr id="linea3" />
+<div class="col-12"></div>
+
+<center>
+    <div class="row container">
+        <!-- un for que recorre "archivos" que guarda todos los registros de la tabla Archivos -->
+        {% for ar in archivos %}
+        <div class="col-6">
+            <!-- mostramos la imagen  -->
+            <p><img id="imgArchivo" src="{{ar.imagen.url}}" /></p>
+        </div>
+
+        <div class="col-6">
+            <!-- Se muestra el resto de informacion que contiene la tabla  -->
+            <strong><h2>{{ar.nombre}}</h2></strong>
+            <p class="mb-3">{{ar.descripcion}}</p>
+            <p class="text-dark mb-3">{{ar.email}}</p>
+        </div>
+        <hr id="linea3" /> {% endfor %}
+    </div>
+</center>
+{% endblock %}

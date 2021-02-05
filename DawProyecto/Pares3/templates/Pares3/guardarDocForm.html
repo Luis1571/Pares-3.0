@@ -1,0 +1,11 @@
+{% extends 'Pares3/base.html' %} {% load static%} {% block content %}
+<h1>Guardar documento {{signatura}}</h1>
+<p>Complete los campos para poder guardar el documento en su perfil</p>
+<form action="/guardarDoc2/{{signatura}}" method="POST" class="row col-12">
+  {% csrf_token %}
+  <input type="textarea" name="comentarioperfil " class="form-control" id="" />
+  <button type="submit" class="btn btn-secondary btn-lg btn-block">
+    guardar
+  </button>
+</form>
+{% endblock %}

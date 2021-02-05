@@ -1,0 +1,47 @@
+<html lang="es">
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <title>Pares 3.0</title>
+       {% load static %}
+
+       <!-- Bootstrap -->
+    <link href="{% static 'Pares3/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+
+      <!-- Css -->
+     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+     -->
+      <link href="{% static 'Pares3/bootstrap.css' %}" rel="stylesheet">
+      <link href="{% static 'Pares3/css/style.css' %}" rel="stylesheet">
+
+      
+ 
+
+      
+
+       {% block content %} {% endblock %}
+
+
+
+      <!-- script -->
+      <script src="{% static 'Pares3/js/jquery.js'%}"></script>
+     
+      <script src="{% static 'Pares3/js/menu-color.js' %}"></script>
+      <script src="{% static 'Pares3/js/modernizr.js' %}"></script>
+      <script src="{% static 'Pares3/js/script.js' %}"></script>
+
+
+ <!-- Bootstrap -->
+    <script src="{% static 'Pares3/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'Pares3/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+
+   
+<!-- Optional: include a polyfill for ES6 Promises for IE11 -->
+
+   </body>
+</html>

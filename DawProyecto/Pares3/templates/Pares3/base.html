@@ -1,0 +1,105 @@
+<!-- El html base, del que heredan otras plantillas del proyecto
+aqui se recogen todos los enlaces a los link de estilos   
+y el menu de navegacion-->
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Pares 3.0</title>
+    {% load static %}
+
+    <!-- Bootstrap -->
+    <link href="{% static 'Pares3/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" />
+
+    <!-- Css -->
+      <link href="{% static 'Pares3/css/style.css' %}" rel="stylesheet" /> 
+</head>
+
+<body class="container-fluid">
+    <!-- barra de navegación general del proyecto -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="col-md-12">
+            <div class="nav">
+                <a class="Logo_user" href="../usuarios">
+ <!-- condicion para saber si se ha iniciado sesion o no  -->
+             {%if nombre%}
+            <span class="pb-3 text-dark">
+              <span class="pb-3">Mi perfil </span>
+            </span>
+          </a> {%else%}
+                <a class="Logo_user" href="../usuarios">
+                    <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-person-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path
+                fill-rule="evenodd"
+                d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"
+              />
+            </svg> {%endif%}
+                </a>
+               
+                <button class="btn-nav">
+            <span id="nacolor" class="icon-bar inverted top"></span>
+            <span id="nacolor" class="icon-bar inverted middle"></span>
+            <span id="nacolor" class="icon-bar inverted bottom"></span>
+          </button>
+            </div>
+            <a class="navbar-brand" href="../home">
+                <strong>PARES 3.0</strong
+          ><span>
+            <img
+              class="circulos-logo"
+              src="{% static 'Pares3/img/circulos.jpeg'%}"
+          /></span>
+          
+        </a>
+
+        <div class="nav-content hideNav hidden">
+          <ul class="nav-list vcenter">
+            <li class="nav-item">
+              <a class="item-anchor" href="../home/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="item-anchor" href="../noticias/">Noticias</a>
+            </li>
+            <li class="nav-item">
+              <a class="item-anchor" href="../archivos/">Archivos</a>
+            </li>
+            <li class="nav-item">
+              <a class="item-anchor" href="../busqueda/">Búsqueda</a>
+            </li>
+            <li class="nav-item">
+              <a class="item-anchor" href="../contacto/">Contacto</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!--  final de la barra de navegacion  -->
+
+    {% block content %} {% endblock %}
+    
+
+    <!-- Bootstrap -->
+    <script src="{% static 'Pares3/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'Pares3/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    
+    
+    
+    
+    
+    <!-- script -->
+    <script src="{% static 'Pares3/js/jquery.js'%}"></script>
+    <script src="{% static 'Pares3/js/menu-color.js' %}"></script>
+    <script src="{% static 'Pares3/js/modernizr.js' %}"></script>
+    <script src="{% static 'Pares3/js/script.js' %}"></script>
+
+   
+
+    
+
+    
+  </body>
+</html>

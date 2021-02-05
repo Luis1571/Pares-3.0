@@ -1,0 +1,51 @@
+{% extends 'Pares3/base.html' %} {% load static%} {% block content %}
+<div class="row " id="a">
+    <div id="mitad_login" class="col-md-5 no-gutter  text-center fill">
+    
+
+<div class="row vcenter  " id="formlogin">
+  
+  <div id="divFormularioInicio" class="col-8 bg-white mx-auto  mt-5 rounded">
+   
+    <center>
+    <div id="DASgris">
+    <p class="mt-3 mb-5" >Usuario Pares 3.0</p>
+    </div>
+    </center>
+    <form action="/login/" method="POST">
+      {% csrf_token %}
+       {% if mensaje_login2 %}
+           <div class="alert alert-danger" role="alert">
+            {{mensaje_login2}}
+          </div>
+         {% endif %}  
+      <!-- el metodo que esta en la vista-->
+      <div class="form-group">
+        <label id="DASgrisclaro" >E-mail</label>
+        <input id="rellenoInputLogin"  type="text" name="email" class="form-control" id="" />
+
+        <br />
+
+        <label id="DASgrisclaro">Contraseña</label>
+        <input  id="rellenoInputLogin" type="password" name="pw" class="form-control" id="" />
+      </div>
+
+      <button type="submit" class="btn btn-block"  id="Aboton">Acceder</button> 
+    </form>
+    <a href="../formRegistro"
+      <button type="submit" class="btn btn-block mb-3" id="GBoton">Registrarse</button>
+    </a>
+   {% if nombre  %}
+   <p>nombre<p>
+    {% endif %}
+    
+  </div>
+  <div class="col-4"></div>
+</div>
+         </div>
+<div class="col-md-6 no-gutter text-center" >
+     <img class="vcenter ml-5" src="{% static 'Pares3/img/9.jpeg'%}" alt="logo"> 
+      </div>
+      <div style="clear:both;"></div>
+    
+    {% endblock %}

@@ -1,0 +1,120 @@
+{% extends 'Pares3/base.html' %} {% load static%} {% block content %}
+<center><h1>Búsqueda</h1></center>
+<hr id="linea2" />
+
+<div class="row">
+<div class="col-3"></div>
+  <div class="col-6 row " id="card">
+    {% comment %}******************* Comienzo del
+    formulario**************************{% endcomment %}
+    <form action="/buscarDoc/" method="GET" class="row col-12">
+      <div class="col-6 form-group mt-2">
+        <label>Signatura </label>
+        <input
+          type="text"
+          name="Signatura"
+          class="form-control"
+          id=""
+          placeholder="{{query}}"
+        />
+        <small class="form-text text-muted"
+          >Escriba la signatura del documento.</small
+        >
+        <label>Archivo</label>
+        <input
+          type="text"
+          name="Archivo"
+          class="form-control"
+          id=""
+          placeholder="{{query}}"
+        />
+        <small class="form-text text-muted">Escriba el archivo.</small>
+      </div>
+      <div class="col-6 form-group mt-2">
+        <label>Palabra Clave</label>
+        <input
+          type="text"
+          name="Titulo"
+          class="form-control"
+          id=""
+          placeholder="{{query}}"
+        />
+        <small class="form-text text-muted"
+          >Escriba una palabra clave del documento a encontrar.</small
+        >
+        <label>Siglo</label>
+        <input
+          type="text"
+          name="Siglo"
+          class="form-control"
+          id=""
+          placeholder="{{query}}"
+        />
+        <small class="form-text text-muted">Siglo del documento.</small>
+      </div>
+      <div class="col-12 ">
+        <center>
+          <button type="submit" class="badge badge-pill  w-50"  id="Rboton">
+            Buscar
+          </button>
+        </center>
+      </div>
+    </form>
+  </div>
+
+
+ {% if mensaje_busqueda %}
+           <div class="alert alert-danger mx-auto" role="alert">
+            {{mensaje_busqueda}}
+          </div>
+        {% endif %}
+  {% if documentos %}
+  <hr id="lineasmall" />
+  <br/>
+  <div class="col-12">
+    <table class="table table-striped" id="card">
+      <thead   id="GBoton">
+        <tr>
+          <th scope="col">Signatura</th>
+          <th scope="col">Documento</th>
+          <th scope="col">Detalle del Documento</th>
+        </tr>
+      </thead>
+    
+      <tbody  class="">
+        {% for d in documentos %}
+        <tr>
+          <td>{{d.signatura}}</td>
+          <td>{{d.titulo}}</td>
+          <td>
+            <center><a
+              class="badge badge-pill  w-25"
+              id="Aboton"
+              href="../detalleDocumento/{{d.signatura}}"
+              role="button"
+              >Ver</a
+            ></center>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% endif %}
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  <script>
+    {%if messages %}
+    {%for m in messages%}
+    Swal.fire(
+      "{m}",
+      'success'
+    )
+     {% endfor %}
+    {% endif %}
+  </script>
+  {% endblock %}
+</div>
